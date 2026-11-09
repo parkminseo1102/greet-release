@@ -1,8 +1,9 @@
 import sys
 
 
-def greet(name: str) -> str:
-    return f"Hello, {name}!"
+def greet(name: str, punctuation: str = "!") -> str:
+    target = name.strip() if name and name.strip() else "world"
+    return f"Hello, {target}{punctuation}"
 
 
 def main() -> int:
@@ -13,6 +14,14 @@ def main() -> int:
 
 def test_greet():
     assert greet("Hee") == "Hello, Hee!"
+
+
+def test_greet_blank():
+    assert greet(" ") == "Hello, world!"
+
+
+def test_greet_punctuation():
+    assert greet("Hee", ".") == "Hello, Hee."
 
 
 if __name__ == "__main__":
