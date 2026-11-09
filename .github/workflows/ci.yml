@@ -14,6 +14,8 @@ jobs:
       fail-fast: false
       matrix:
         python: ["3.11", "3.12"]
+    env:
+      UV_PYTHON_PREFERENCE: system
     steps:
       - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
